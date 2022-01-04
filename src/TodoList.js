@@ -7,7 +7,8 @@ import Todo from './Todo.js';
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.handleAddTodo = this.handleAddTodo.bind(this)
+        this.handleAddTodo = this.handleAddTodo.bind(this) 
+        this.handleDeleteTodo = this.handleDeleteTodo.bind(this)
         this.state = {
             todos: []
         }
@@ -20,8 +21,15 @@ class TodoList extends Component {
             todos: newTodos
         })
     }
+    handleDeleteTodo(todoKey) {
+        let index = this.state.todos.findIndex(element => element.key == todoKey)
+        let newTodos = [...this.state.todos.slice(0, index), ...this.state.todos.slice(index + 1)]
+        this.setState(st => ({
+            todos: newTodos
+        }));
+    }
     render() {
-        let todos = this.state.todos.map(todoElement => <Todo text={todoElement.todo} key={todoElement.key}/>)
+        let todos = this.state.todos.map(todoElement => <Todo text={todoElement.todo} key={todoElement.key} deleteTodo={this.handleDeleteTodo}/>)
         return (
             <div>
                 <NewTodoForm addTodo={this.handleAddTodo} />
