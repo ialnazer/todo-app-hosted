@@ -25,7 +25,7 @@ class NewTodoForm extends Component {
         return (
             <form>
                 <input name='todo' value={this.state.todo} onChange={this.handleChange}></input>
-                <input type="submit" onClick={this.handleSubmit}/>
+                <button onClick={this.handleSubmit}>Add Todo</button>
             </form>
         );
     }
