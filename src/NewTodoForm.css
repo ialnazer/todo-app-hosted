@@ -1,0 +1,10 @@
+.NewTodoForm{
+    width: 100%;
+}
+.NewTodoForm-btn{
+    background-color: #ee6c4d;
+    border-color: white;
+}
+.NewTodoForm-btn:hover{
+    background-color: #eea694;
+}

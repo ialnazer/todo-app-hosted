@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './NewTodoForm.css'
 
 class NewTodoForm extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class NewTodoForm extends Component {
             [evt.target.name]: evt.target.value
         })
     }
-    handleSubmit(evt){
+    handleSubmit(evt) {
         evt.preventDefault();
         this.setState({
             todo: ""
@@ -23,10 +24,26 @@ class NewTodoForm extends Component {
     }
     render() {
         return (
-            <form>
-                <input name='todo' value={this.state.todo} onChange={this.handleChange}></input>
-                <button onClick={this.handleSubmit}>Add Todo</button>
-            </form>
+            <div className="mt-3 NewTodoForm">
+                <p className="mb-1"> Add New Todo</p>
+                <form>
+                    <div className="row align-items-center">
+                        <div className="col-8">
+                            <input className="form-control" name='todo' value={this.state.todo} onChange={this.handleChange}></input>
+                        </div>
+                        <div className="col-4 d-flex justify-content-end">
+                        <button className="btn NewTodoForm-btn" onClick={this.handleSubmit}>Add Todo</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            // <div className="mt-3 NewTodoForm">
+            //     <p className="mb-2"> Add New Todo</p>
+            //     <form className="d-flex flex-row mb-3">
+            //         <input className="flex-grow-1 form-control" name='todo' value={this.state.todo} onChange={this.handleChange}></input>
+            //         <button className="NewTodoForm-btn" onClick={this.handleSubmit}>Add Todo</button>
+            //     </form>
+            // </div>
         );
     }
 }

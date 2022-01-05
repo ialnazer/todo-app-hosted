@@ -1,4 +1,17 @@
 .Todo-text-linethrough{
     text-decoration: line-through;
-    color: grey;
+    color: #293241;
+}
+.Todo{
+    width: 100%
+}
+span:hover{
+    background-color: #293241;
+}
+.Todo-form-btn{
+    background-color: #ee6c4d;
+    border-color: white;
+}
+.Todo-form-btn:hover{
+    background-color: #eea694;
 }

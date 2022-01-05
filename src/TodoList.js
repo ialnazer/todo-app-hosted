@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import './TodoList.css';
 import NewTodoForm from './NewTodoForm.js'
 import { v4 as uuidv4 } from 'uuid';
 import Todo from './Todo.js';
@@ -7,7 +6,7 @@ import Todo from './Todo.js';
 class TodoList extends Component {
     constructor(props) {
         super(props);
-        this.handleAddTodo = this.handleAddTodo.bind(this) 
+        this.handleAddTodo = this.handleAddTodo.bind(this)
         this.handleDeleteTodo = this.handleDeleteTodo.bind(this)
         this.handleLinethroughTodo = this.handleLinethroughTodo.bind(this)
         this.handleToEditTodo = this.handleToEditTodo.bind(this)
@@ -31,7 +30,7 @@ class TodoList extends Component {
             todos: newTodos
         }));
     }
-    handleLinethroughTodo(todoKey){  
+    handleLinethroughTodo(todoKey) {
         let index = this.state.todos.findIndex(element => element.key == todoKey)
         let newTodo = {
             todo: this.state.todos[index].todo,
@@ -39,12 +38,12 @@ class TodoList extends Component {
             toedit: this.state.todos[index].toedit,
             linethrough: !this.state.todos[index].linethrough
         }
-        let newTodos = [...this.state.todos.slice(0, index),newTodo, ...this.state.todos.slice(index + 1)]
+        let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
         this.setState(st => ({
             todos: newTodos
         }));
     }
-    handleToEditTodo(todoKey){  
+    handleToEditTodo(todoKey) {
         let index = this.state.todos.findIndex(element => element.key == todoKey)
         let newTodo = {
             todo: this.state.todos[index].todo,
@@ -52,12 +51,12 @@ class TodoList extends Component {
             key: this.state.todos[index].key,
             toedit: true
         }
-        let newTodos = [...this.state.todos.slice(0, index),newTodo, ...this.state.todos.slice(index + 1)]
+        let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
         this.setState(st => ({
             todos: newTodos
         }));
     }
-    handleEditTodo(todoKey, editedTodo){  
+    handleEditTodo(todoKey, editedTodo) {
         let index = this.state.todos.findIndex(element => element.key == todoKey)
         let newTodo = {
             todo: editedTodo,
@@ -65,27 +64,32 @@ class TodoList extends Component {
             key: this.state.todos[index].key,
             toedit: false
         }
-        let newTodos = [...this.state.todos.slice(0, index),newTodo, ...this.state.todos.slice(index + 1)]
+        let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
         this.setState(st => ({
             todos: newTodos
         }));
     }
     render() {
-        let todos = this.state.todos.map(todoElement => <Todo 
-            linethrough = {todoElement.linethrough} 
-            text={todoElement.todo} 
-            key={todoElement.key} 
+        let todos = this.state.todos.map(todoElement => <Todo
+            linethrough={todoElement.linethrough}
+            text={todoElement.todo}
+            key={todoElement.key}
             toedit={todoElement.toedit}
-            deleteTodo={this.handleDeleteTodo} 
+            deleteTodo={this.handleDeleteTodo}
             linethroughTodo={this.handleLinethroughTodo}
             toeditTodo={this.handleToEditTodo}
             editTodo={this.handleEditTodo}
-            />)
+        />)
         return (
-            <div>
-                <NewTodoForm addTodo={this.handleAddTodo} />
-                {todos}
-            </div>
+                <div className="container mt-5 p-3">
+                <div className="row justify-content-center">
+                    <div className="col-md-6 d-flex flex-column align-items-start justify-content-start p-5 rounded-2" style={{ backgroundColor: "#ee6c4d" }}>
+                        <h2>Todo List</h2>
+                        <p className="mb-1"> A React Todo List App</p>
+                        <hr className="mt-0 mb-5" style={{ width: "60%" }} />
+                        {todos}
+                        <NewTodoForm addTodo={this.handleAddTodo} />
+                    </div></div></div>
         );
     }
 }
