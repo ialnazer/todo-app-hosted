@@ -25,7 +25,7 @@ class NewTodoForm extends Component {
     render() {
         return (
             <div className="mt-3 NewTodoForm">
-                <p className="mb-1"> Add New Todo</p>
+                <p className="mb-1">My New Todo</p>
                 <form>
                     <div className="row align-items-center">
                         <div className="col-8">

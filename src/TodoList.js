@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NewTodoForm from './NewTodoForm.js'
-import { v4 as uuidv4 } from 'uuid';
 import Todo from './Todo.js';
+import { v4 as uuidv4 } from 'uuid';
 
 class TodoList extends Component {
     constructor(props) {
