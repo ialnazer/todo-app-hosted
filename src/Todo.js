@@ -10,6 +10,7 @@ class Todo extends Component {
         this.handleChange = this.handleChange.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {
+            toedit: false,
             editedTodo: this.props.text
         }
     }
@@ -17,7 +18,11 @@ class Todo extends Component {
         this.props.deleteTodo(this._reactInternals.key)
     }
     handleEditClick() {
-        this.props.toeditTodo(this._reactInternals.key)
+        //this.props.toeditTodo(this._reactInternals.key)
+        this.setState(st => ({
+            toedit: true
+        }));
+
     }
     handleTextClick() {
         this.props.linethroughTodo(this._reactInternals.key)
@@ -30,6 +35,9 @@ class Todo extends Component {
     handleSubmit(evt) {
         evt.preventDefault();
         this.props.editTodo(this._reactInternals.key, this.state.editedTodo)
+        this.setState(st => ({
+            toedit: false
+        }));
     }
     render() {
         let className = "flex-grow-1"
@@ -44,7 +52,7 @@ class Todo extends Component {
                     <span className=" rounded-2" onClick={this.handleDeleteClick}><i className="fas fa-trash p-1"></i></span>
                 </div>
             </div>
-        if (this.props.toedit) {
+        if (this.state.toedit) {
             todo =
                 <form className="Todo-form">
                 <div className="row align-items-center">
