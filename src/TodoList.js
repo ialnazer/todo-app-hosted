@@ -61,14 +61,18 @@ class TodoList extends Component {
     //     }));
     // }
     handleEditTodo(todoKey, editedTodo) {
-        let index = this.state.todos.findIndex(element => element.key == todoKey)
-        let newTodo = {
-            todo: editedTodo,
-            linethrough: this.state.todos[index].linethrough,
-            key: this.state.todos[index].key,
-            //toedit: false
-        }
-        let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
+        // let index = this.state.todos.findIndex(element => element.key == todoKey)
+        // let newTodo = {
+        //     todo: editedTodo,
+        //     linethrough: this.state.todos[index].linethrough,
+        //     key: this.state.todos[index].key,
+        //     //toedit: false
+        // }
+        // let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
+        const newTodos = this.state.todos.map(todoElement => {
+            if(todoElement.key == todoKey) return {...todoElement, todo : editedTodo}
+            else return todoElement            
+        })
         this.setState(st => ({
             todos: newTodos
         }));
