@@ -35,14 +35,18 @@ class TodoList extends Component {
 
     }
     handleLinethroughTodo(todoKey) {
-        let index = this.state.todos.findIndex(element => element.key == todoKey)
-        let newTodo = {
-            todo: this.state.todos[index].todo,
-            key: this.state.todos[index].key,
-            //toedit: this.state.todos[index].toedit,
-            linethrough: !this.state.todos[index].linethrough
-        }
-        let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
+        // let index = this.state.todos.findIndex(element => element.key == todoKey)
+        // let newTodo = {
+        //     todo: this.state.todos[index].todo,
+        //     key: this.state.todos[index].key,
+        //     //toedit: this.state.todos[index].toedit,
+        //     linethrough: !this.state.todos[index].linethrough
+        // }
+        // let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
+        const newTodos = this.state.todos.map(todoElement => {
+            if(todoElement.key == todoKey) return {...todoElement, linethrough : !todoElement.linethrough}
+            else return todoElement            
+        })
         this.setState(st => ({
             todos: newTodos
         }));
