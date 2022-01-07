@@ -3,7 +3,10 @@
     color: #293241;
 }
 .Todo{
-    width: 100%
+    width: 100%;
+    display: flex;
+    justify-content:space-between;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 span:hover{
     background-color: #293241;
@@ -14,4 +17,7 @@ span:hover{
 }
 .Todo-form-btn:hover{
     background-color: #eea694;
+}
+.Todo-form{
+    width: 100%;
 }

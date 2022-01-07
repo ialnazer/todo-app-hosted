@@ -44,16 +44,18 @@ class Todo extends Component {
         // if (this.props.linethrough) {
         //     className = `${className} Todo-text-linethrough`
         // }
-        let todo =
-            <div className="d-flex flex-row">
-                <div className={this.props.linethrough? "Todo-text-linethrough flex-grow-1" :"flex-grow-1"} onClick={this.handleTextClick}>{this.props.text}</div>
+        let todo =(
+        <div className="Todo mb-2">
+            {/* <div className="d-flex flex-row"> */}
+                <div className={this.props.linethrough? "Todo-text-linethrough" :""} onClick={this.handleTextClick}>{this.props.text}</div>
                 <div>
                     <span className="me-2 rounded-2" onClick={this.handleEditClick}><i className="fas fa-pencil-alt p-1"></i></span>
                     <span className=" rounded-2" onClick={this.handleDeleteClick}><i className="fas fa-trash p-1"></i></span>
                 </div>
-            </div>
+            </div>)
         if (this.state.toedit) {
-            todo =
+            todo =(
+            <div className="Todo mb-2">
                 <form className="Todo-form">
                 <div className="row align-items-center">
                     <div className="col-8">
@@ -64,16 +66,17 @@ class Todo extends Component {
                     </div>
                 </div>
                 </form>
+                </div>)
             // <form className="d-flex flex-row Todo-form">
             //     <input className="flex-grow-1" name='editedTodo' value={this.state.editedTodo} onChange={this.handleChange}></input>
             //     <button className="Todo-form-btn" onClick={this.handleSubmit}>Save</button>
             // </form>
         }
-        return (
-            <div className="Todo mb-2">
-                {todo}
-            </div>
-        );
+        return todo; //(
+            // <div className="Todo mb-2">
+                //{todo}
+            // </div>
+        //);
     }
 }
 
