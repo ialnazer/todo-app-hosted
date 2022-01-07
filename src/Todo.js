@@ -40,13 +40,13 @@ class Todo extends Component {
         }));
     }
     render() {
-        let className = "flex-grow-1"
-        if (this.props.linethrough) {
-            className = `${className} Todo-text-linethrough`
-        }
+        // let className = "flex-grow-1"
+        // if (this.props.linethrough) {
+        //     className = `${className} Todo-text-linethrough`
+        // }
         let todo =
             <div className="d-flex flex-row">
-                <div className={className} onClick={this.handleTextClick}>{this.props.text}</div>
+                <div className={this.props.linethrough? "Todo-text-linethrough flex-grow-1" :"flex-grow-1"} onClick={this.handleTextClick}>{this.props.text}</div>
                 <div>
                     <span className="me-2 rounded-2" onClick={this.handleEditClick}><i className="fas fa-pencil-alt p-1"></i></span>
                     <span className=" rounded-2" onClick={this.handleDeleteClick}><i className="fas fa-trash p-1"></i></span>
