@@ -47,7 +47,7 @@ class Todo extends Component {
         let todo =(
         <div className="Todo mb-2">
             {/* <div className="d-flex flex-row"> */}
-                <div className={this.props.linethrough? "Todo-text-linethrough" :""} onClick={this.handleTextClick}>{this.props.text}</div>
+                <div className={this.props.linethrough? "Todo-text-linethrough Todo-task" :"Todo-task"} onClick={this.handleTextClick}>{this.props.text}</div>
                 <div>
                     <span className="me-2 rounded-2" onClick={this.handleEditClick}><i className="fas fa-pencil-alt p-1"></i></span>
                     <span className=" rounded-2" onClick={this.handleDeleteClick}><i className="fas fa-trash p-1"></i></span>

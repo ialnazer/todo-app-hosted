@@ -1,6 +1,6 @@
 .Todo-text-linethrough{
-    text-decoration: line-through;
-    color: #293241;
+    /* text-decoration: line-through;
+    color: #293241; */
 }
 .Todo{
     width: 100%;
@@ -21,3 +21,30 @@ span:hover{
 .Todo-form{
     width: 100%;
 }
+.Todo-task {
+    position: relative;
+    transition: opacity 0.4s linear;
+  }
+.Todo-task.Todo-text-linethrough {
+    transition: opacity 300ms ease-in-out;
+    transition-delay: 200ms;
+    opacity: 0.5;
+  }
+  
+.Todo-task.Todo-text-linethrough:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.1rem;
+    display: block;
+    width: 0%;
+    height: 1px;
+    background: #fff;
+    animation: strikeitem 0.3s ease-in 0s forwards;
+  }
+  
+  @keyframes strikeitem {
+    to {
+      width: calc(100% + 1rem);
+    }
+  }
