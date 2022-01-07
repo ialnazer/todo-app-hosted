@@ -24,11 +24,15 @@ class TodoList extends Component {
         })
     }
     handleDeleteTodo(todoKey) {
-        let index = this.state.todos.findIndex(element => element.key == todoKey)
-        let newTodos = [...this.state.todos.slice(0, index), ...this.state.todos.slice(index + 1)]
+        // let index = this.state.todos.findIndex(element => element.key == todoKey)
+        // let newTodos = [...this.state.todos.slice(0, index), ...this.state.todos.slice(index + 1)]
+        // this.setState(st => ({
+        //     todos: newTodos
+        // }));
         this.setState(st => ({
-            todos: newTodos
-        }));
+                todos: this.state.todos.filter(element => element.key !== todoKey)
+            }));
+
     }
     handleLinethroughTodo(todoKey) {
         let index = this.state.todos.findIndex(element => element.key == todoKey)
