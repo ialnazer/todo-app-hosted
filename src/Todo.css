@@ -21,6 +21,7 @@ span:hover{
 .Todo-form{
     width: 100%;
 }
+/* animating the linethrough effect */
 .Todo-task {
     position: relative;
     transition: opacity 0.4s linear;
