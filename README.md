@@ -7,8 +7,7 @@ Enjoy adding tasks to your **Todo** list, mark them as completed, edit and delet
 
 The Todo list style is inspired by [Sawsan's Todo list UI](https://codepen.io/saawsan/pen/jayzeq)
 
-To open it in your browser
-
+To open it in your browser try:
 ```
 git clone https://github.com/ialnazer/todo-app
 cd todo-app
