@@ -12,16 +12,16 @@ class TodoList extends Component {
         //this.handleToEditTodo = this.handleToEditTodo.bind(this)
         this.handleEditTodo = this.handleEditTodo.bind(this)
         this.state = {
-            todos: []
+            todos: JSON.parse(window.localStorage.getItem("todos")) || []
         }
     }
     handleAddTodo(todo) {
-        let newTodo = { ...todo, key: uuidv4(), linethrough: false}//, toedit: false }
+        let newTodo = { ...todo, key: uuidv4(), linethrough: false }//, toedit: false }
         let oldTodos = this.state.todos
         let newTodos = [...oldTodos, newTodo]
-        this.setState({
-            todos: newTodos
-        })
+        this.setState(st => ({ todos: newTodos }),
+            this.syncLocalStorage
+        )
     }
     handleDeleteTodo(todoKey) {
         // let index = this.state.todos.findIndex(element => element.key == todoKey)
@@ -30,9 +30,9 @@ class TodoList extends Component {
         //     todos: newTodos
         // }));
         this.setState(st => ({
-                todos: this.state.todos.filter(element => element.key !== todoKey)
-            }));
-
+            todos: this.state.todos.filter(element => element.key !== todoKey)
+        }),
+            this.syncLocalStorage);
     }
     handleLinethroughTodo(todoKey) {
         // let index = this.state.todos.findIndex(element => element.key == todoKey)
@@ -44,12 +44,13 @@ class TodoList extends Component {
         // }
         // let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
         const newTodos = this.state.todos.map(todoElement => {
-            if(todoElement.key == todoKey) return {...todoElement, linethrough : !todoElement.linethrough}
-            else return todoElement            
+            if (todoElement.key == todoKey) return { ...todoElement, linethrough: !todoElement.linethrough }
+            else return todoElement
         })
         this.setState(st => ({
             todos: newTodos
-        }));
+        }),
+            this.syncLocalStorage);
     }
     // handleToEditTodo(todoKey) {
     //     let index = this.state.todos.findIndex(element => element.key == todoKey)
@@ -74,12 +75,16 @@ class TodoList extends Component {
         // }
         // let newTodos = [...this.state.todos.slice(0, index), newTodo, ...this.state.todos.slice(index + 1)]
         const newTodos = this.state.todos.map(todoElement => {
-            if(todoElement.key == todoKey) return {...todoElement, todo : editedTodo}
-            else return todoElement            
+            if (todoElement.key == todoKey) return { ...todoElement, todo: editedTodo }
+            else return todoElement
         })
         this.setState(st => ({
             todos: newTodos
-        }));
+        }),
+            this.syncLocalStorage);
+    }
+    syncLocalStorage() {
+        window.localStorage.setItem("todos", JSON.stringify(this.state.todos))
     }
     render() {
         let todos = this.state.todos.map(todoElement => <Todo
@@ -93,7 +98,7 @@ class TodoList extends Component {
             editTodo={this.handleEditTodo}
         />)
         return (
-                <div className="container mt-5 p-3">
+            <div className="container mt-5 p-3">
                 <div className="row justify-content-center">
                     <div className="col-md-6 d-flex flex-column align-items-start justify-content-start p-5 rounded-2" style={{ backgroundColor: "#ee6c4d" }}>
                         <h2>Todo List</h2>
