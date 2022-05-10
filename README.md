@@ -7,12 +7,6 @@ Enjoy adding tasks to your **Todo** list, mark them as completed, edit and delet
 
 The Todo list style is inspired by [Sawsan's Todo list UI](https://codepen.io/saawsan/pen/jayzeq)
 
-To open it in your browser try:
-```
-git clone https://github.com/ialnazer/todo-app
-cd todo-app
-rm package-lock.json
-npm cache clean
-npm install
-npm start
-```
+This project is developed along with [Colt Steel's React course](https://www.udemy.com/course/modern-react-bootcamp) - *Udemy*
+
+Click [here](https://ialnazer.github.io/todo-app-hosted/) to open it in your browser
