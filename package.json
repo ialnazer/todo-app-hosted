@@ -1,6 +1,6 @@
 {
   "name": "todo-app",
-  "homepage": "https://ialnazer.github.io/todo-app/",
+  "homepage": "https://ialnazer.github.io/todo-app-hosted/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
