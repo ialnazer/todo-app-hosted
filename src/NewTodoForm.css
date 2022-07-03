@@ -1,10 +1,16 @@
-.NewTodoForm{
+.NewTodoForm {
     width: 100%;
 }
-.NewTodoForm-btn{
+
+.NewTodoForm-btn {
     background-color: #ee6c4d;
     border-color: white;
 }
-.NewTodoForm-btn:hover{
+
+.NewTodoForm-btn:hover {
     background-color: #eea694;
+}
+
+.divInput {
+    padding-right: 0;
 }

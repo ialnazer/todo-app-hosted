@@ -28,10 +28,10 @@ class NewTodoForm extends Component {
                 <p className="mb-1">My New Todo</p>
                 <form>
                     <div className="row align-items-center">
-                        <div className="col-8">
+                        <div className="col-6 divInput">
                             <input className="form-control" name='todo' value={this.state.todo} onChange={this.handleChange}></input>
                         </div>
-                        <div className="col-4 d-flex justify-content-end">
+                        <div className="col-6 d-flex justify-content-end">
                         <button className="btn NewTodoForm-btn" onClick={this.handleSubmit}>Add Todo</button>
                         </div>
                     </div>
